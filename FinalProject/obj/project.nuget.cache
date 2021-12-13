@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0ThZLYrolUYb8TV893jRLR+MimfTUT00qoIKQ/ALp/ehDJiP5YblQYQWFGjA0gcf54Lr4nWboq8WNXpQMLA21A==",
+  "dgSpecHash": "SrN8Gn8ov1oZwx2KDhLmim1d65RVoInNCunRClO2kxKK7R9tAfcOjp6pojGi1M3hgSRsoK6oEc+0N6gJWaRbyQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\mario\\source\\repos\\FinalProject\\FinalProject\\FinalProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mario\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\mario\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\5.0.0\\microsoft.aspnetcore.authentication.facebook.5.0.0.nupkg.sha512",
     "C:\\Users\\mario\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.10\\microsoft.aspnetcore.cryptography.internal.5.0.10.nupkg.sha512",
     "C:\\Users\\mario\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.10\\microsoft.aspnetcore.cryptography.keyderivation.5.0.10.nupkg.sha512",
     "C:\\Users\\mario\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\5.0.10\\microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.10.nupkg.sha512",

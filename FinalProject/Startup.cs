@@ -1,4 +1,5 @@
 using FinalProject.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +35,24 @@ namespace FinalProject
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/account/facebook-login"; // Must be lowercase
+            })
+        .AddFacebook(options =>
+        {
+            options.AppId = "948090192467585";
+            options.AppSecret = "700fb87f985961781130647fdb7b5d5e";
             services.AddControllersWithViews();
+        });
+
+        
+        services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +73,7 @@ namespace FinalProject
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthentication();
             app.UseAuthorization();

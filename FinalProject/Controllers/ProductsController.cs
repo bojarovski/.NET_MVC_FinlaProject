@@ -81,16 +81,16 @@ namespace FinalProject.Controllers
         //POST Upsert
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(productVM productVM)
-        {
-            if (ModelState.IsValid)
-            {
+        //public IActionResult Upsert(productVM productVM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
                
-            }
+        //    }
 
 
-            return View(obj);
-        }
+        //    return View(obj);
+        //}
 
        
         //GET DELETE
