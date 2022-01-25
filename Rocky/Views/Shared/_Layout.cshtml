@@ -22,15 +22,21 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Brands</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <!--
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationType" asp-action="Index">Application Type</a>
-                        </li>
-                        -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                        
+    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Content Manager
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Brands</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationType" asp-action="Index">Application Type</a>
+                                <div class="dropdown-divider"></div>
+
+                            </div>
                         </li>
                     </ul>
                 </div>

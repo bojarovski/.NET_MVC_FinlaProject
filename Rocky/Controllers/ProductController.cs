@@ -27,12 +27,12 @@ namespace Rocky.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Product> objList = _db.Product;
+            IEnumerable<Product> objList = _db.Product.Include(u => u.Category);// include ... go zamenua dolniot god 
 
-            foreach(var obj in objList)
-            {
-                obj.Category = _db.Category.FirstOrDefault(u => u.Id == obj.CategoryId);
-            };
+            //foreach(var obj in objList)
+            //{
+            //    obj.Category = _db.Category.FirstOrDefault(u => u.Id == obj.CategoryId);
+            //};
 
             return View(objList);
         }
@@ -109,15 +109,15 @@ namespace Rocky.Controllers
                 else
                 {
                     //updating
-                    var objFromDb = _db.Product.AsNoTracking().FirstOrDefault(u => u.Id == productVM.Product.Id);
+                    var objFromDb = _db.Product.AsNoTracking().FirstOrDefault(u => u.Id == productVM.Product.Id);//zema eleentot od data bazata 
 
-                    if(files.Count > 0)
+                    if(files.Count > 0)//proverka dali ima slika
                     {
                         string upload = webRootPath + WC.ImagePath;
                         string fileName = Guid.NewGuid().ToString();
                         string extension = Path.GetExtension(files[0].FileName);
 
-                        //Delete old file
+                        //Brisenje na fajlot
                         var oldFile = Path.Combine(upload,objFromDb.Image);
 
                         if(System.IO.File.Exists(oldFile))
@@ -125,7 +125,7 @@ namespace Rocky.Controllers
                             System.IO.File.Delete(oldFile);
                         }
 
-                        //Push new image into the database
+                        //Pushnuanje u data baza 
                         using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
                         {
                             files[0].CopyTo(fileStream);
@@ -135,7 +135,7 @@ namespace Rocky.Controllers
                     }
                     else
                     {
-                        productVM.Product.Image = objFromDb.Image;
+                        productVM.Product.Image = objFromDb.Image;//ako nema slika sea updae pr ime
                     }
                     _db.Product.Update(productVM.Product);
                 }
@@ -162,8 +162,8 @@ namespace Rocky.Controllers
             {
                 return NotFound();
             }
-            Product product = _db.Product.Include(u=>u.Category).FirstOrDefault(u=>u.Id==id);
-            //product.Category = _db.Category.Find(product.CategoryId);
+            Product product = _db.Product.Include(u=>u.Category).FirstOrDefault(u=>u.Id==id);// za da se load produktoti brendot negov 
+            
             if (product == null)
             {
                 return NotFound();
