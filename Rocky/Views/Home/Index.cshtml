@@ -12,7 +12,7 @@
     </div>
     <br />
     <div class="row">
-        @foreach (var prod in Model.Products)
+        @foreach (var prod in @Model.Products)
         {
             <partial name="_IdividualProducCard" model="prod" />//gi zema od partialview i u for samo gi postavua produktite
             //display all product
